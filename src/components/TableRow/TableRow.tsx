@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { ICompany } from '../../store/companies';
-import { AppDispatch } from '../../store/store';
 import {
 	changeCompanyAddress,
 	changeCompanyName,
 	removeCompany,
 	selectCompany,
 } from '../../store/companiesSlice';
+import { AppDispatch } from '../../store/store';
 
-import styles from './CompanyRow.module.css';
+import styles from './TableRow.module.css';
 
 type CompanyRowProps = {
 	company: ICompany;
