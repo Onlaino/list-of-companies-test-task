@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ICompany } from './companies';
+import { ICompany, initialCompanies } from './companies';
 
 type CompaniesState = {
 	companies: ICompany[];
 };
 
 const initialState: CompaniesState = {
-	companies: [],
+	companies: initialCompanies,
 };
 
 export const companiesSlice = createSlice({
@@ -16,12 +16,45 @@ export const companiesSlice = createSlice({
 		addCompany(state, action: PayloadAction<ICompany>) {
 			state.companies.push(action.payload);
 		},
+
 		removeCompany(state, action: PayloadAction<{ id: number }>) {
-			return state.companies.filter(
+			state.companies = state.companies.filter(
 				(company) => company.id !== action.payload.id
 			);
 		},
-		selectCompany(state, action: PayloadAction<{ id: number }>) {
+
+		removeSelectedCompanies(state) {
+			state.companies = state.companies.filter((company) => company.isSelected !== true);
+		},
+
+		changeCompanyAddress(
+			state,
+			action: PayloadAction<{ id: number; address: string }>
+		) {
+			const editableCompany = state.companies.find(
+				(company) => company.id === action.payload.id
+			);
+			if (editableCompany) {
+				editableCompany.address = action.payload.address;
+			}
+		},
+
+		changeCompanyName(
+			state,
+			action: PayloadAction<{ id: number; name: string }>
+		) {
+			const editableCompany = state.companies.find(
+				(company) => company.id === action.payload.id
+			);
+			if (editableCompany) {
+				editableCompany.name = action.payload.name;
+			}
+		},
+
+		selectCompany(
+			state,
+			action: PayloadAction<{ id: number; isSelected: boolean }>
+		) {
 			const company = state.companies.find(
 				(company) => company.id === action.payload.id
 			);
@@ -29,14 +62,29 @@ export const companiesSlice = createSlice({
 				company.isSelected = !company.isSelected;
 			}
 		},
+
 		selectAllCompanies(state) {
 			state.companies.forEach((company) => {
-				company.isSelected = !company.isSelected;
+				company.isSelected = true;
+			});
+		},
+
+		deselectAllCompanies(state) {
+			state.companies.forEach((company) => {
+				company.isSelected = false;
 			});
 		},
 	},
 });
 
-export const { addCompany, removeCompany, selectCompany, selectAllCompanies } =
-	companiesSlice.actions;
+export const {
+	addCompany,
+	removeCompany,
+	selectCompany,
+	selectAllCompanies,
+	changeCompanyAddress,
+	removeSelectedCompanies,
+	changeCompanyName,
+	deselectAllCompanies,
+} = companiesSlice.actions;
 export default companiesSlice.reducer;
