@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { ICompany } from '../../store/companies';
 
-export const Modal = () => {
+export const Modal = ({ onClose }: { onClose: () => void }) => {
 	const dispatch = useDispatch<AppDispatch>();
 	const newId = useId();
 	const [companyData, setCompanyData] = useState<ICompany>({

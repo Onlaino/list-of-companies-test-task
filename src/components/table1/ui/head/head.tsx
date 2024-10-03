@@ -1,3 +1,4 @@
+import { ModalPortal } from '../../../modal1/main';
 import styles from './head.module.css';
 
 type HeadProps = {
@@ -23,7 +24,8 @@ export const Head = ({
 			</div>
 			<div>
 				Компании&nbsp;|&nbsp;
-				<span className={styles.addCompany}>Добавить компанию +</span>
+				<ModalPortal />
+				{/* <span className={styles.addCompany}>Добавить компанию +</span> */}
 			</div>
 			<div
 				onClick={handleRemoveSelectedCompanies}

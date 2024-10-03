@@ -9,19 +9,14 @@ import { AppDispatch } from '../../../../store/store';
 
 import styles from './row.module.css';
 
-type CompanyRowProps = {
+type RowProps = {
 	id: number;
 	isSelected: boolean;
 	name: string;
 	address: string;
 };
 
-export const Row = ({
-	address,
-	id,
-	isSelected,
-	name,
-}: CompanyRowProps) => {
+export const Row = ({ address, id, isSelected, name }: RowProps) => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	return (

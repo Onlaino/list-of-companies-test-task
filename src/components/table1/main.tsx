@@ -5,6 +5,15 @@ import { Container } from './ui/container/container';
 import { Head } from './ui/head/head';
 import { Row } from './ui/row/row';
 
+
+// TODO: поменять пути
+// TODO: Readme.md как запускать проект, ссылка на версел, объяснение принятых решений (объяснить архитектуру и.т.д)
+// TODO: в ридми добавить варианты добавления компаний
+// TODO: добавление компании - модалка + ОПИСАНИЕ ПОЧЕМУ МОДАЛКА 
+// TODO: добавить метатеги
+// TODO: props vs useSelector
+// TODO: table vs Grid
+
 export const Table = ({ children }: PropsWithChildren) => {
 	return (
 		<Container>
