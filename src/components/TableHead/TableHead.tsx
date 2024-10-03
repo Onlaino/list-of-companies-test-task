@@ -17,8 +17,7 @@ export const TableHead = () => {
 		setIsChecked(!isChecked);
 		if (isChecked) {
 			dispatch(deselectAllCompanies());
-		}
-		if (!isChecked) {
+		} else {
 			dispatch(selectAllCompanies());
 		}
 	};
@@ -28,25 +27,26 @@ export const TableHead = () => {
 	};
 
 	return (
-		<thead className={styles.head}>
-			<tr className={styles.row}>
-				<td>
-					<input
-						className={styles.selectCompanies}
-						onChange={handleChangeCheckbox}
-						type='checkbox'
-					/>
-					Выделить все
-				</td>
-				<td colSpan={2}>Компании</td>
-				<td
-					onClick={handleRemoveSelectedCompanies}
-					rowSpan={1}
-					className={styles.deleteSelected}
-				>
-					Удалить выбранное <span>&#128465;</span>
-				</td>
-			</tr>
-		</thead>
+		<div className={styles.row}>
+			<div >
+				<input
+					name='selectAll'
+					className={styles.selectCompanies}
+					onChange={handleChangeCheckbox}
+					type='checkbox'
+				/>
+				<span>Выделить все</span>
+			</div>
+			<div>
+				Компании&nbsp;|&nbsp;
+				<span className={styles.addCompany}>Добавить компанию +</span>
+			</div>
+			<div
+				onClick={handleRemoveSelectedCompanies}
+				className={styles.deleteSelected}
+			>
+				<p>Удалить выбранное</p> <span>&#128465;</span>
+			</div>
+		</div>
 	);
 };

@@ -6,11 +6,13 @@ type TableBodyProps = {
 };
 
 export const TableBody = ({ companies }: TableBodyProps) => {
-	return (
-		<tbody>
-			{companies.map((company) => (
-				<TableRow key={company.id} company={company} />
-			))}
-		</tbody>
-	);
+	return companies.map((company) => (
+		<TableRow
+			key={company.id}
+			address={company.address}
+			name={company.name}
+			id={company.id}
+			isSelected={company.isSelected}
+		/>
+	));
 };

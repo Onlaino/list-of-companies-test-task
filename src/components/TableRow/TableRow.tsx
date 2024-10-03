@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import { ICompany } from '../../store/companies';
 import {
 	changeCompanyAddress,
 	changeCompanyName,
@@ -11,70 +10,75 @@ import { AppDispatch } from '../../store/store';
 import styles from './TableRow.module.css';
 
 type CompanyRowProps = {
-	company: ICompany;
+	id: number;
+	isSelected: boolean;
+	name: string;
+	address: string;
 };
 
-export const TableRow = ({ company }: CompanyRowProps) => {
+export const TableRow = ({
+	address,
+	id,
+	isSelected,
+	name,
+}: CompanyRowProps) => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	return (
-		<tr
-			key={company.id}
-			className={
-				company.isSelected ? `${styles.row} ${styles.checked}` : styles.row
-			}
+		<div
+			className={isSelected ? `${styles.row} ${styles.checked}` : styles.row}
 		>
-			<td>
+			<div className={styles.checkboxWrapper}>
 				<input
 					className={styles.checkbox}
 					onChange={(evt) => {
 						dispatch(
 							selectCompany({
-								id: company.id,
+								id: id,
 								isSelected: evt.target.checked,
 							})
 						);
 					}}
 					type='checkbox'
-					checked={company.isSelected}
+					checked={isSelected}
 				/>
-			</td>
-			<td>
+			</div>
+			<div>
 				<input
 					className={styles.editableInput}
-					value={company.name}
+					value={name}
 					onChange={(evt) => {
 						dispatch(
 							changeCompanyName({
-								id: company.id,
+								id: id,
 								name: evt.target.value,
 							})
 						);
 					}}
 				/>
-			</td>
-			<td>
+			</div>
+			<div>
 				<input
 					className={styles.editableInput}
-					value={company.address}
+					value={address}
 					onChange={(evt) => {
 						dispatch(
 							changeCompanyAddress({
-								id: company.id,
+								id: id,
 								address: evt.target.value,
 							})
 						);
 					}}
 				/>
-			</td>
-			<td
+			</div>
+			<div
 				className={styles.remove}
 				onClick={() => {
-					dispatch(removeCompany({ id: company.id }));
+					dispatch(removeCompany({ id: id }));
 				}}
 			>
 				&#128465;
-			</td>
-		</tr>
+			</div>
+		</div>
 	);
 };
