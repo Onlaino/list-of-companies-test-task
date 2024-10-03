@@ -47,7 +47,6 @@ export const initialCompanies: ICompany[] = [
 	{ id: 23, name: 'Abcd', address: 'Сенная площадь 6', isSelected: false },
 	{ id: 24, name: 'Efgh', address: 'Малая Морская 11', isSelected: false },
 	{ id: 25, name: 'Ijkl', address: 'Галерная 18', isSelected: false },
-	// Add more mock data here
 	{
 		id: 26,
 		name: 'Mnop',
