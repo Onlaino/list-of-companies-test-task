@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 
-import { AppDispatch } from '@store/store';
-import { ICompany } from '@store/companies';
-import { addCompany } from '@store/companiesSlice';
 
 import { Button } from '../button/button';
 import { Form } from '../form/form';
 import { Input } from '../input/input';
 
 import styles from './modal.module.css';
+import { AppDispatch } from '../../../../store/store';
+import { ICompany } from '../../../../store/companies';
+import { addCompany } from '../../../../store/companiesSlice';
 
 type ModalProps = {
 	onClose: () => void;

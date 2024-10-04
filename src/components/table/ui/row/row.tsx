@@ -1,13 +1,8 @@
 import { useDispatch } from 'react-redux';
-import {
-	changeCompanyAddress,
-	changeCompanyName,
-	removeCompany,
-	selectCompany,
-} from '@store/companiesSlice';
-import { AppDispatch } from '@store/store';
 
 import styles from './row.module.css';
+import { AppDispatch } from '../../../../store/store';
+import { changeCompanyAddress, changeCompanyName, removeCompany, selectCompany } from '../../../../store/companiesSlice';
 
 type RowProps = {
 	id: string;

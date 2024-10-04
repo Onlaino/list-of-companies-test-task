@@ -1,4 +1,5 @@
-import { ICompany } from '@store/companies';
+
+import { ICompany } from '../../../../store/companies';
 import { Row } from '../row/row';
 
 type TableBodyProps = {
