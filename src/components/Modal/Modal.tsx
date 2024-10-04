@@ -1,17 +1,20 @@
-import { useId, useState } from 'react';
+import { useState } from 'react';
 import { addCompany } from '../../store/companiesSlice';
 import { useDispatch } from 'react-redux';
 import { AppDispatch } from '../../store/store';
 import { ICompany } from '../../store/companies';
 
-export const Modal = ({ onClose }: { onClose: () => void }) => {
+import { v4 as uuidv4 } from 'uuid';
+
+// TODO: тут с присвоением id не все хорошо
+
+export const Modal = () => {
 	const dispatch = useDispatch<AppDispatch>();
-	const newId = useId();
 	const [companyData, setCompanyData] = useState<ICompany>({
 		name: '',
 		address: '',
 		isSelected: false,
-		id: Number(newId),
+		id: uuidv4(),
 	});
 
 	return (

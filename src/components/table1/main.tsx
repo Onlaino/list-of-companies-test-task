@@ -14,10 +14,6 @@ import { Row } from './ui/row/row';
 // TODO: props vs useSelector
 // TODO: table vs Grid
 
-
-
-
-
 export const Table = ({ children }: PropsWithChildren) => {
 	return (
 		<Container>

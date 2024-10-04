@@ -17,7 +17,7 @@ export const companiesSlice = createSlice({
 			state.companies.push(action.payload);
 		},
 
-		removeCompany(state, action: PayloadAction<{ id: number }>) {
+		removeCompany(state, action: PayloadAction<{ id: string }>) {
 			state.companies = state.companies.filter(
 				(company) => company.id !== action.payload.id
 			);
@@ -29,7 +29,7 @@ export const companiesSlice = createSlice({
 
 		changeCompanyAddress(
 			state,
-			action: PayloadAction<{ id: number; address: string }>
+			action: PayloadAction<{ id: string; address: string }>
 		) {
 			const editableCompany = state.companies.find(
 				(company) => company.id === action.payload.id
@@ -41,7 +41,7 @@ export const companiesSlice = createSlice({
 
 		changeCompanyName(
 			state,
-			action: PayloadAction<{ id: number; name: string }>
+			action: PayloadAction<{ id: string; name: string }>
 		) {
 			const editableCompany = state.companies.find(
 				(company) => company.id === action.payload.id
@@ -53,7 +53,7 @@ export const companiesSlice = createSlice({
 
 		selectCompany(
 			state,
-			action: PayloadAction<{ id: number; isSelected: boolean }>
+			action: PayloadAction<{ id: string; isSelected: boolean }>
 		) {
 			const company = state.companies.find(
 				(company) => company.id === action.payload.id

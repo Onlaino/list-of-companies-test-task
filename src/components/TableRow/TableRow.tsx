@@ -8,20 +8,16 @@ import {
 import { AppDispatch } from '../../store/store';
 
 import styles from './TableRow.module.css';
+import { ICompany } from '../../store/companies';
 
-type CompanyRowProps = {
-	id: number;
-	isSelected: boolean;
-	name: string;
-	address: string;
-};
+
 
 export const TableRow = ({
 	address,
 	id,
 	isSelected,
 	name,
-}: CompanyRowProps) => {
+}: ICompany) => {
 	const dispatch = useDispatch<AppDispatch>();
 
 	return (
@@ -34,7 +30,7 @@ export const TableRow = ({
 					onChange={(evt) => {
 						dispatch(
 							selectCompany({
-								id: id,
+								id,
 								isSelected: evt.target.checked,
 							})
 						);
