@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
 
+import { v4 as uuidv4 } from 'uuid';
 
 import { Button } from '../button/button';
 import { Form } from '../form/form';
@@ -10,6 +10,7 @@ import { Input } from '../input/input';
 import { ICompany } from '../../../../store/companies';
 import { addCompany } from '../../../../store/companiesSlice';
 import { AppDispatch } from '../../../../store/store';
+
 import styles from './modal.module.css';
 
 type ModalProps = {
@@ -25,6 +26,19 @@ export const Modal = ({ onClose }: ModalProps) => {
 		id: uuidv4(),
 	});
 
+	useEffect(() => {
+		const handleKeyDown = (evt: KeyboardEvent) => {
+			if (evt.key === 'Escape') {
+				onClose();
+			}
+		};
+
+		document.addEventListener('keydown', handleKeyDown);
+		return () => {
+			document.removeEventListener('keydown', handleKeyDown);
+		};
+	}, [onClose]);
+
 	const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = (evt) => {
 		evt.preventDefault();
 		dispatch(addCompany(companyData));
@@ -39,8 +53,14 @@ export const Modal = ({ onClose }: ModalProps) => {
 		setCompanyData({ ...companyData, address: evt.target.value });
 	};
 
+	const handleWrapperClick = (evt: React.MouseEvent<HTMLDivElement>) => {
+		if ((evt.target as HTMLElement).classList.contains(styles.wrapper)) {
+			onClose();
+		}
+	};
+
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} onClick={handleWrapperClick}>
 			<section className={styles.modal}>
 				<Modal.Button
 					className={`${styles.button} ${styles.buttonClose}`}

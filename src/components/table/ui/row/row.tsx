@@ -1,8 +1,14 @@
 import { useDispatch } from 'react-redux';
 
-import styles from './row.module.css';
+import {
+	changeCompanyAddress,
+	changeCompanyName,
+	removeCompany,
+	selectCompany,
+} from '../../../../store/companiesSlice';
 import { AppDispatch } from '../../../../store/store';
-import { changeCompanyAddress, changeCompanyName, removeCompany, selectCompany } from '../../../../store/companiesSlice';
+
+import styles from './row.module.css';
 
 type RowProps = {
 	id: string;
@@ -40,7 +46,7 @@ export const Row = ({ address, id, isSelected, name }: RowProps) => {
 					onChange={(evt) => {
 						dispatch(
 							changeCompanyName({
-								id: id,
+								id,
 								name: evt.target.value,
 							})
 						);
@@ -54,7 +60,7 @@ export const Row = ({ address, id, isSelected, name }: RowProps) => {
 					onChange={(evt) => {
 						dispatch(
 							changeCompanyAddress({
-								id: id,
+								id,
 								address: evt.target.value,
 							})
 						);
@@ -64,7 +70,7 @@ export const Row = ({ address, id, isSelected, name }: RowProps) => {
 			<div
 				className={styles.remove}
 				onClick={() => {
-					dispatch(removeCompany({ id: id }));
+					dispatch(removeCompany({ id }));
 				}}
 			>
 				&#128465;

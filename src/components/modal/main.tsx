@@ -5,8 +5,6 @@ import { Modal } from './ui/modal/modal';
 
 import styles from './main.module.css';
 
-// TODO: стилизовать модалку
-
 export const ModalPortal = () => {
 	const [showModal, setShowModal] = useState<boolean>(false);
 

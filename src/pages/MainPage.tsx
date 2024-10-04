@@ -25,6 +25,7 @@ export const MainPage = () => {
 			dispatch(selectAllCompanies());
 		}
 	};
+	
 	const handleRemoveSelectedCompanies = () => {
 		dispatch(removeSelectedCompanies());
 	};
