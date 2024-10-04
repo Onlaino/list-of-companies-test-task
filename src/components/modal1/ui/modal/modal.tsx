@@ -16,7 +16,6 @@ type ModalProps = {
 	onClose: () => void;
 };
 
-
 export const Modal = ({ onClose }: ModalProps) => {
 	const dispatch = useDispatch<AppDispatch>();
 	const [companyData, setCompanyData] = useState<ICompany>({
