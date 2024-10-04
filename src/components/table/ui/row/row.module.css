@@ -2,6 +2,8 @@
 	transition: all 0.35s ease;
 	background-color: #fff;
 	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	border-left: 1px solid gray;
 	width: 100%;
 	display: grid;
 	grid-template-columns: 2fr 3fr 3fr 3fr;
@@ -32,7 +34,7 @@
 }
 
 .checked {
-	background-color: #a6a6a6;
+	background-color: #c9c9c9;
 }
 
 .checkbox:hover {
