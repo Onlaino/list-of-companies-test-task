@@ -25,7 +25,6 @@ export const Head = ({
 			<div>
 				Компании&nbsp;|&nbsp;
 				<ModalPortal />
-				{/* <span className={styles.addCompany}>Добавить компанию +</span> */}
 			</div>
 			<div
 				onClick={handleRemoveSelectedCompanies}

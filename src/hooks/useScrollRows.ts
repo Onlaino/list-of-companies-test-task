@@ -1,5 +1,5 @@
+import { ICompany } from '@store/companies';
 import { useEffect, useState } from 'react';
-import { ICompany } from '../store/companies';
 
 export const useScrollRows = (data: ICompany[]) => {
 	const [visibleCount, setVisibleCount] = useState(20);

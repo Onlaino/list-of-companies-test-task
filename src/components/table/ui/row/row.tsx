@@ -4,8 +4,8 @@ import {
 	changeCompanyName,
 	removeCompany,
 	selectCompany,
-} from '../../../../store/companiesSlice';
-import { AppDispatch } from '../../../../store/store';
+} from '@store/companiesSlice';
+import { AppDispatch } from '@store/store';
 
 import styles from './row.module.css';
 

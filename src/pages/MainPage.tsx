@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table } from '../components/table/main';
-import { useScrollRows } from '../hooks/useScrollRows';
+
+import { Loader } from '@components/common/loader/loader';
+import { Table } from '@components/table/main';
+import { useScrollRows } from '@hooks/useScrollRows';
+
+import { AppDispatch, RootState } from '@store/store';
 import {
 	deselectAllCompanies,
 	removeSelectedCompanies,
 	selectAllCompanies,
-} from '../store/companiesSlice';
-import { AppDispatch, RootState } from '../store/store';
-import { Loader } from '../components/common/loader/loader';
-
+} from '@store/companiesSlice';
 
 export const MainPage = () => {
 	const { companies } = useSelector((s: RootState) => s.companies);
