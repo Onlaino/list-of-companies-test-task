@@ -1,4 +1,7 @@
-import React, { useId, useState } from 'react';
+import React, { useState } from 'react';
+
+import { v4 as uuidv4 } from 'uuid';
+
 import { ICompany } from '../../../../store/companies';
 import { Button } from '../button/button';
 import { Form } from '../form/form';
@@ -13,22 +16,20 @@ type ModalProps = {
 	onClose: () => void;
 };
 
-// TODO: починить тип id 
 
 export const Modal = ({ onClose }: ModalProps) => {
 	const dispatch = useDispatch<AppDispatch>();
-	const newId = useId();
 	const [companyData, setCompanyData] = useState<ICompany>({
 		name: '',
 		address: '',
 		isSelected: false,
-		id: newId,
+		id: uuidv4(),
 	});
 
 	const handleSubmitForm: React.FormEventHandler<HTMLFormElement> = (evt) => {
 		evt.preventDefault();
 		dispatch(addCompany(companyData));
-		setCompanyData({ name: '', address: '', id: 0, isSelected: false });
+		setCompanyData({ name: '', address: '', id: uuidv4(), isSelected: false });
 	};
 
 	const handleChangeName = (evt: React.ChangeEvent<HTMLInputElement>) => {

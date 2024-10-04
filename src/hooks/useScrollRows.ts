@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { ICompany } from '../store/companies';
 
 export const useScrollRows = (data: ICompany[]) => {
-	const [visibleCount, setVisibleCount] = useState(15);
+	const [visibleCount, setVisibleCount] = useState(20);
 	const [isFetching, setIsFetching] = useState(false);
 	const [loading, setLoading] = useState(false);
 

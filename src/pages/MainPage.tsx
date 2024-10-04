@@ -16,8 +16,6 @@ export const MainPage = () => {
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const dispatch = useDispatch<AppDispatch>();
 
-	console.log(companies);
-
 	const handleChangeCheckbox = () => {
 		setIsChecked(!isChecked);
 		if (isChecked) {
@@ -38,8 +36,8 @@ export const MainPage = () => {
 					handleRemoveSelectedCompanies={handleRemoveSelectedCompanies}
 				/>
 				<Table.Body companies={visibleCompanies} />
+				{loading && <Loader />}
 			</Table>
-			{loading && <Loader />}
 		</>
 	);
 };
