@@ -10,7 +10,7 @@ import { AppDispatch } from '../../../../store/store';
 import styles from './row.module.css';
 
 type RowProps = {
-	id: number;
+	id: string;
 	isSelected: boolean;
 	name: string;
 	address: string;
@@ -29,7 +29,7 @@ export const Row = ({ address, id, isSelected, name }: RowProps) => {
 					onChange={(evt) => {
 						dispatch(
 							selectCompany({
-								id: id,
+								id,
 								isSelected: evt.target.checked,
 							})
 						);

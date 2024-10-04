@@ -1,0 +1,29 @@
+{
+	"root": [
+		"./src/app.tsx",
+		"./src/main.tsx",
+		"./src/vite-env.d.ts",
+		"./src/components/loader/loader.tsx",
+		"./src/components/modal/modal.tsx",
+		"./src/components/table/table.tsx",
+		"./src/components/tablebody/tablebody.tsx",
+		"./src/components/tablehead/tablehead.tsx",
+		"./src/components/tablerow/tablerow.tsx",
+		"./src/components/modal1/main.tsx",
+		"./src/components/modal1/ui/button/button.tsx",
+		"./src/components/modal1/ui/form/form.tsx",
+		"./src/components/modal1/ui/input/input.tsx",
+		"./src/components/modal1/ui/modal/modal.tsx",
+		"./src/components/table1/main.tsx",
+		"./src/components/table1/ui/body/body.tsx",
+		"./src/components/table1/ui/container/container.tsx",
+		"./src/components/table1/ui/head/head.tsx",
+		"./src/components/table1/ui/row/row.tsx",
+		"./src/hooks/usescrollrows.ts",
+		"./src/pages/mainpage.tsx",
+		"./src/store/companies.ts",
+		"./src/store/companiesslice.ts",
+		"./src/store/store.ts"
+	],
+	"version": "5.6.2"
+}

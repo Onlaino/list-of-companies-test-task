@@ -10,9 +10,10 @@ import { Row } from './ui/row/row';
 // TODO: Readme.md как запускать проект, ссылка на версел, объяснение принятых решений (объяснить архитектуру и.т.д)
 // TODO: в ридми добавить варианты добавления компаний
 // TODO: добавление компании - модалка + ОПИСАНИЕ ПОЧЕМУ МОДАЛКА 
-// TODO: добавить метатеги
 // TODO: props vs useSelector
 // TODO: table vs Grid
+
+// TODO: Написать документацию с описанием решений
 
 export const Table = ({ children }: PropsWithChildren) => {
 	return (
