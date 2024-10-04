@@ -8,7 +8,8 @@ import {
 	selectAllCompanies,
 } from '../store/companiesSlice';
 import { AppDispatch, RootState } from '../store/store';
-import { Loader } from '../components/common/loader/Loader';
+import { Loader } from '../components/common/loader/loader';
+
 
 export const MainPage = () => {
 	const { companies } = useSelector((s: RootState) => s.companies);
