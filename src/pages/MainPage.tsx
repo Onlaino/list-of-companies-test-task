@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Loader } from '../components/Loader/Loader';
-import { Table } from '../components/table1/main';
+import { Table } from '../components/table/main';
 import { useScrollRows } from '../hooks/useScrollRows';
 import {
 	deselectAllCompanies,
@@ -9,6 +8,7 @@ import {
 	selectAllCompanies,
 } from '../store/companiesSlice';
 import { AppDispatch, RootState } from '../store/store';
+import { Loader } from '../components/common/loader/Loader';
 
 export const MainPage = () => {
 	const { companies } = useSelector((s: RootState) => s.companies);

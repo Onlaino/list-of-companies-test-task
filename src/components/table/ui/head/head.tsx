@@ -1,4 +1,4 @@
-import { ModalPortal } from '../../../modal1/main';
+import { ModalPortal } from '../../../modal/main';
 import styles from './head.module.css';
 
 type HeadProps = {
