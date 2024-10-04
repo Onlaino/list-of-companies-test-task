@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Список компаний
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Ссылка за задеплоеный проект](https://list-of-companies-test-task.vercel.app/)
 
-Currently, two official plugins are available:
+## Запуск проекта
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Команды для запуска проекта
+  - `npm install` для установки зависимостей
+  - `npm run dev` для запуска сервера разработки
+  - `npm run build` для создания билда приложения
 
-## Expanding the ESLint configuration
+## Общая информация о проекте
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Проект - таблица для просмотра списка компаний.
+Главной функциональностью которого является просмотр в таблице списка всех компаний, добавление, удаление компаний. В приложении реализован выбор нескольких или всех компаний по чекбоксу "Выделить все".
+Также предусмотрен вариант, когда компаний может быть много, для динамической подгрузки реализован "infinite scroll", чтобы не загружать все компании разом и была возможность выбирать количество элементов для подгрузки.
 
-- Configure the top-level `parserOptions` property like this:
+## Технологии
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- [React](https://react.dev/)
+- [ReduxToolkit](https://redux-toolkit.js.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Описание решений
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Архитектура 
+
+В приложении была реализована простая **модульная архитектура**, поскольку на этапе разработки не было ясности, потребуется ли дальнейшее масштабирование проекта или достаточно будет решения на уровне MVP.
+
+### Почему `Vite` был использован в проекте
+
+- Быстрая сборка: Vite использует новейшие технологии, такие как ES modules и хуки, чтобы ускорить процесс сборки приложения. Это позволяет разработчикам быстро собирать и разрабатывать приложение.
+- Быстрое обновление: Vite обеспечивает быстрое обновление при изменении кода. Это позволяет быстро видеть результаты своих изменений и упрощает процесс разработки.
+- Улучшенная производительность: Vite оптимизирует производительность приложения, используя такие технологии, как код-сплиттинг и ленивая загрузка.
+- Легкость использования: Vite имеет простой и интуитивно понятный API.
+- Поддержка современных технологий: Vite поддерживает современные технологии, такие как React, Vue и Angular, а также позволяет использовать новые функции JavaScript, такие как ES modules и хуки.
+
+
+### Модальное окно
+
+Было несколько возможных реализаций добавления компании в список.
+
+- Модальное окно.
+- Новая пустая строка в таблице, где нужно было внести нужные данные.
+- Отдельная страница с формой.
+
+Модальное окно, которое и было выбрано, так как в т/з было указано, что нужно использовать минимальное количество библиотек.
