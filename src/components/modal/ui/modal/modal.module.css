@@ -4,16 +4,15 @@
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: rgba(0, 0, 0, .5);
+	background-color: rgba(0, 0, 0, 0.5);
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-
 .modal {
-	/* height: 5	0%; */
+	position: relative;
 	width: 30%;
 }
 
@@ -28,14 +27,62 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: start;
+	
 	gap: 30px;
 }
 
-.input {
+.inputWrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 10px;
+}
 
+.inputWrapper > input {
+	width: 100%;
+	transition: all 0.35s ease;
+	padding: 5px 10px;
+	border: none;
+	border-bottom: 2px solid #808080bb;
+	border-top: 2px solid transparent;
+	outline: none;
+}
+
+.inputWrapper > input:focus {
+	border: 2px solid #5bbda7;
+	border-radius: 10px;
+}
+
+.inputWrapper > label {
+	font-size: 16px;
 }
 
 .button {
+	transition: all 0.35s ease;
+	cursor: pointer;
 
+	border-radius: 10px;
+	border: none;
+	padding: 5px 10px;
+	font-weight: bold;
+
+	outline: none;
+}
+
+.button:hover {
+	background-color: #5bbda7;
+}
+
+.buttonClose {
+	position: absolute;
+	color: #ad7683;
+	top: 5px;
+	right: 5px;
+	background: transparent;
+}
+
+.buttonAdd {
+	color: #ad7683;
+
+	background: transparent;
 }

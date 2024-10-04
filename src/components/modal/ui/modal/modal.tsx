@@ -7,10 +7,10 @@ import { Button } from '../button/button';
 import { Form } from '../form/form';
 import { Input } from '../input/input';
 
-import styles from './modal.module.css';
-import { AppDispatch } from '../../../../store/store';
 import { ICompany } from '../../../../store/companies';
 import { addCompany } from '../../../../store/companiesSlice';
+import { AppDispatch } from '../../../../store/store';
+import styles from './modal.module.css';
 
 type ModalProps = {
 	onClose: () => void;
@@ -42,12 +42,15 @@ export const Modal = ({ onClose }: ModalProps) => {
 	return (
 		<div className={styles.wrapper}>
 			<section className={styles.modal}>
-				<Modal.Button className={styles.button} onClick={onClose}>
-					Скрыть окно
+				<Modal.Button
+					className={`${styles.button} ${styles.buttonClose}`}
+					onClick={onClose}
+				>
+					X
 				</Modal.Button>
 				<Modal.Form className={styles.form} onHandleSubmit={handleSubmitForm}>
 					<Modal.Input
-						className={styles.input}
+						className={styles.inputWrapper}
 						handleChange={handleChangeName}
 						label='Введите наименование компании'
 						minLength={3}
@@ -57,7 +60,7 @@ export const Modal = ({ onClose }: ModalProps) => {
 						value={companyData.name}
 					/>
 					<Modal.Input
-						className={styles.input}
+						className={styles.inputWrapper}
 						handleChange={handleChangeAddress}
 						label='Введите адрес компании'
 						minLength={3}
@@ -66,7 +69,10 @@ export const Modal = ({ onClose }: ModalProps) => {
 						required={true}
 						value={companyData.address}
 					/>
-					<Modal.Button className={styles.button} type='submit'>
+					<Modal.Button
+						className={`${styles.button} ${styles.buttonAdd}`}
+						type='submit'
+					>
 						Добавить компанию
 					</Modal.Button>
 				</Modal.Form>

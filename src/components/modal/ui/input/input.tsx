@@ -13,9 +13,10 @@ export const Input = ({
 	name,
 	placeholder,
 	required,
+	className
 }: InputProps) => {
 	return (
-		<div>
+		<div className={className}>
 			<label htmlFor={name}>{label}</label>
 			<input
 				value={value}
