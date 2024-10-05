@@ -5,12 +5,6 @@ import { Container } from './ui/container/container';
 import { Head } from './ui/head/head';
 import { Row } from './ui/row/row';
 
-
-// TODO: поменять пути !!!! НЕ РАБОТАЕТ 
-// TODO: props vs useSelector
-// TODO: table vs Grid
-
-
 export const Table = ({ children }: PropsWithChildren) => {
 	return (
 		<Container>

@@ -1,4 +1,3 @@
-
 import { ICompany } from '../../../../store/companies';
 import { Row } from '../row/row';
 
